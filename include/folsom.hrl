@@ -36,7 +36,7 @@
           window = ?DEFAULT_SLIDING_WINDOW,
           size = ?DEFAULT_SIZE,
           reservoir = folsom_metrics_histogram_ets:new(folsom_slide_uniform,[set, {write_concurrency, true}, public]),
-          seed = os:timestamp(),
+          seed = rand:seed(exsp),
           server
          }).
 
@@ -44,7 +44,7 @@
           size = ?DEFAULT_SIZE,
           n = 1,
           reservoir = folsom_metrics_histogram_ets:new(folsom_uniform,[set, {write_concurrency, true}, public]),
-          seed = os:timestamp()
+          seed = rand:seed(exsp)
          }).
 
 -record(exdec, {
@@ -52,7 +52,7 @@
           next = 0,
           alpha = ?DEFAULT_ALPHA,
           size = ?DEFAULT_SIZE,
-          seed = os:timestamp(),
+          seed = rand:seed(exsp),
           n = 1,
           reservoir = folsom_metrics_histogram_ets:new(folsom_exdec,[ordered_set, {write_concurrency, true}, public])
          }).

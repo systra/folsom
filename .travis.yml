@@ -1,11 +1,7 @@
 language: erlang
-
-script: rebar get-deps compile && rebar skip_deps=true eunit
-
 otp_release:
-  - 17.3
-  - 17.1
-  - 17.0
-  - R16B03-1
-  - R16B03
-  - R16B02
+  - 20.3.8
+  - 21.3
+  - 22.1
+script:
+  - rebar3 do upgrade, compile, xref, dialyzer, eunit
